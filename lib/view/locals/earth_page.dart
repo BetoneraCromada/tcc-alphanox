@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:tx/view/locals/space_center_page.dart';
+import 'package:tx/view/locals/agency/space_center_page.dart';
 import 'package:tx/widgets/info_card.dart';
 
 class EarthPage extends StatefulWidget {
@@ -17,10 +17,10 @@ class _EarthPageState extends State<EarthPage> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: 400,
+            expandedHeight: 710,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                'images/earth.png',
+                'assets/images/earth.png',
                 fit: BoxFit.cover,
               ),
               title: const Text(
@@ -56,29 +56,29 @@ class _EarthPageState extends State<EarthPage> {
                 title: 'Tamanho',
                 subtitle: '12.742 km de diâmetro',
               ),
-              InfoCard(
+              const InfoCard(
                 icon: Icons.terrain,
                 title: 'Área da Superfície',
                 subtitle: '510,1 milhões km²',
               ),
-              InfoCard(
+              const InfoCard(
                 icon: Icons.timelapse,
                 title: 'Idade',
                 subtitle: '4,543 bilhões de anos',
               ),
-              InfoCard(
+              const InfoCard(
                 icon: Icons.wb_sunny,
                 title: 'Distância do Sol',
                 subtitle: '149,6 milhões\nde km',
               ),
             ]),
           ),
-          SliverGap(20),
+          const SliverGap(20),
           SliverToBoxAdapter(
             child: Card(
-              margin: EdgeInsets.all(8),
+              margin: const EdgeInsets.all(8),
               child: ListTile(
-                title: Row(
+                title: const Row(
                   children: [
                     Text(
                       'NASA',
@@ -92,11 +92,11 @@ class _EarthPageState extends State<EarthPage> {
                     )
                   ],
                 ),
-                subtitle: Text(
+                subtitle: const Text(
                   'O centro de comando e controle das \nsuas missões',
                 ),
-                leading: Icon(Icons.rocket_launch_rounded),
-                trailing: Icon(Icons.arrow_forward_ios_rounded),
+                leading: const Icon(Icons.rocket_launch_rounded),
+                trailing: const Icon(Icons.arrow_forward_ios_rounded),
                 onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(

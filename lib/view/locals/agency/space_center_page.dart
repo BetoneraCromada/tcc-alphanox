@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:tx/view/locals/agency/observatory_page.dart';
+import 'package:tx/view/locals/earth_page.dart';
 import 'package:tx/widgets/info_card.dart';
 
 class SpaceCenterPage extends StatefulWidget {
@@ -13,6 +15,12 @@ class _SpaceCenterPageState extends State<SpaceCenterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        heroTag: 'batmann',
+        onPressed: () {},
+        label: const Text('Próxima Missão'),
+        icon: const Icon(Icons.next_plan_outlined),
+      ),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -22,7 +30,7 @@ class _SpaceCenterPageState extends State<SpaceCenterPage> {
                 children: [
                   Positioned.fill(
                     child: Image.asset(
-                      'images/space-center.jpg',
+                      'assets/images/space-center.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -47,7 +55,7 @@ class _SpaceCenterPageState extends State<SpaceCenterPage> {
                   ),
                 ],
               ),
-              title: Row(
+              title: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -148,15 +156,15 @@ class _SpaceCenterPageState extends State<SpaceCenterPage> {
             ]),
           ),
           const SliverGap(20),
-          const SliverToBoxAdapter(
-            child: Card(
-              margin: EdgeInsets.all(8),
-              child: ListTile(
+          SliverToBoxAdapter(
+            child: Container(
+              margin: const EdgeInsets.all(8),
+              child: const ListTile(
                 title: Text(
                   'Controle de Missão',
-                  // style: TextStyle(
-                  //   fontFamily: 'Nasalization',
-                  // ),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 subtitle: Text(
                     'Veja os corpos celestes catalogados do Sistema Solar'),
@@ -165,105 +173,27 @@ class _SpaceCenterPageState extends State<SpaceCenterPage> {
               ),
             ),
           ),
-          const SliverToBoxAdapter(
-            child: Card(
-              margin: EdgeInsets.all(8),
+          SliverToBoxAdapter(
+            child: Container(
+              margin: const EdgeInsets.all(8),
               child: ListTile(
-                title: Text(
+                title: const Text(
                   'Observatório',
-                  // style: TextStyle(
-                  //   fontFamily: 'Nasalization',
-                  // ),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                subtitle: Text(
+                subtitle: const Text(
                     'Veja os corpos celestes catalogados do Sistema Solar'),
-                leading: Icon(Icons.rocket_launch_rounded),
-                trailing: Icon(Icons.arrow_forward_ios_rounded),
+                leading: const Icon(Icons.rocket_launch_rounded),
+                trailing: const Icon(Icons.arrow_forward_ios_rounded),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const EarthPage(),
+                  ),
+                ),
               ),
-            ),
-          ),
-          const SliverGap(30),
-          const SliverToBoxAdapter(
-            child: Divider(
-              indent: 20,
-              endIndent: 20,
-            ),
-          ),
-          const SliverGap(60),
-          SliverAppBar(
-            automaticallyImplyLeading: false,
-            expandedHeight: 400,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Stack(
-                children: [
-                  Positioned.fill(
-                    child: Image.asset(
-                      'images/jpl.jpg',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      height: 350, // Defina o tamanho do container
-                      width: double.infinity, // Ocupar toda a largura
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.transparent, // Começo transparente
-                            Theme.of(context)
-                                .colorScheme
-                                .surface, // Cor de fundo no final (ex: azul)
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: Container(
-                      height: 200, // Defina o tamanho do container
-                      width: double.infinity, // Ocupar toda a largura
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Theme.of(context)
-                                .colorScheme
-                                .surface, // Cor de fundo no final (ex: azul)
-                            Colors.transparent, // Começo transparente
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              title: const Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'JPL',
-                    style: TextStyle(
-                      //color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Nasalization',
-                    ),
-                  ),
-                  Gap(5),
-                  Text(
-                    'Jet Propulsion Laboratory',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  )
-                ],
-              ),
-              centerTitle: true,
             ),
           ),
           const SliverGap(1000),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tx/view/locals/agency/agency_page.dart';
 import 'package:tx/view/locals/earth_page.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
           dynamicSchemeVariant: DynamicSchemeVariant.monochrome,
         ),
       ),
-      home: const EarthPage(),
+      home: const AgencyMainPage(),
     );
   }
 }
